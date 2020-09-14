@@ -15,14 +15,26 @@
             <form >
                 <div class="form-group">
                     <label for="text-password">Name</label>
-                    <b-input type="text" id="name" aria-describedby="name-help-block" v-model="student.name" :state="validation.name.status"></b-input>
+                    <b-input 
+                            type="text" 
+                            id="name" 
+                            aria-describedby="name-help-block" 
+                            v-model="student.name" 
+                            :state="validation.name.status"
+                    ></b-input>
                     <b-form-invalid-feedback id="name-help-block" :state="validation.name.status">  
                         {{ validation.name.txt}}              
                     </b-form-invalid-feedback>
                 </div>
                 <div class="form-group">
                     <label for="text-password">Email</label>
-                    <b-input type="email" id="email" aria-describedby="email-help-block" v-model="student.email" :state="validation.email.status"></b-input>
+                    <b-input 
+                            type="email" 
+                            id="email" 
+                            aria-describedby="email-help-block" 
+                            v-model="student.email" 
+                            :state="validation.email.status"
+                    ></b-input>
                     <b-form-invalid-feedback id="email-help-block" :state="validation.email.status">  
                         {{ validation.email.txt }}              
                     </b-form-invalid-feedback>
@@ -30,7 +42,13 @@
 
                 <div class="form-group">
                     <label for="text-password">Phone</label>
-                    <b-input type="number" id="phone" aria-describedby="phone-help-block" v-model="student.phone" :state="validation.phone.status"></b-input>
+                    <b-input 
+                            type="number" 
+                            id="phone" 
+                            aria-describedby="phone-help-block" 
+                            v-model="student.phone" 
+                            :state="validation.phone.status"
+                    ></b-input>
                     <b-form-invalid-feedback id="phone-help-block" :state="validation.phone.status"> 
                         {{ validation.phone.txt }}                
                     </b-form-invalid-feedback>
@@ -38,7 +56,14 @@
 
                 <div class="form-group">
                     <label for="dob">Date of birth</label>
-                    <b-input type="date" v-bind:max="maxDob" id="dob" aria-describedby="date-help-block" v-model="student.dob" :state="validation.dob.status"></b-input>
+                    <b-input 
+                            type="date" 
+                            v-bind:max="maxDob" 
+                            id="dob" 
+                            aria-describedby="date-help-block" 
+                            v-model="student.dob" 
+                            :state="validation.dob.status"
+                    ></b-input>
                     <b-form-invalid-feedback id="date-help-block" :state="validation.dob.status">   
                         {{ validation.dob.txt }}            
                     </b-form-invalid-feedback>
@@ -218,7 +243,6 @@
 
                 return validationSuccess;
             }
-
         },
     };
 </script>

@@ -15,14 +15,24 @@
 
             <div class="form-group">
                 <label>Student</label>
-                <v-select :options="options" :reduce="option => option.id" label="name" v-model="studentId" />
+                <v-select 
+                        :options="options" 
+                        :reduce="option => option.id" 
+                        label="name" 
+                        v-model="studentId" 
+                />
                 <b-form-invalid-feedback id="name-help-block" :state="validation.studentId.status">  
                     {{ validation.studentId.txt}}              
                 </b-form-invalid-feedback>
             </div>
             <div class="form-group" v-bind:style="{ display: hideShow }">
                 <label for="text-password">Subject</label>
-                <b-input type="text" aria-describedby="name-help-block" v-model="subject" :state="validation.subject.status"></b-input>
+                <b-input 
+                        type="text" 
+                        aria-describedby="name-help-block" 
+                        v-model="subject" 
+                        :state="validation.subject.status"
+                ></b-input>
                 <b-form-invalid-feedback id="name-help-block" :state="validation.subject.status">  
                     {{ validation.subject.txt}}              
                 </b-form-invalid-feedback>
@@ -92,6 +102,7 @@
 
                 this.options = tmpList;                
                 this.studentList = tmpStudentList;
+                
                 return studentList;
             },
             addSubject() {
