@@ -98,6 +98,10 @@
                 return tmpSubjects;
             },
             deleteSubject(row) {
+                if (!confirm("Are you sure to delete?")) {
+                    return;
+                }
+
                 //As of code optization and security. this functionality wille moved to server alterr on.
                 this.allSubjects.forEach(function(obj) {
                     if (row.item.subject === obj.subject) {

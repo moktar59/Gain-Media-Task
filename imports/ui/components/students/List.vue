@@ -110,6 +110,10 @@
             return studentList;
           },
           deleteStudent(row) {
+            if (!confirm("Are you sure to delete?")) {
+              return;
+            }
+
             Students.remove(row.item._id);
 
             //Delete Subjects of that student
