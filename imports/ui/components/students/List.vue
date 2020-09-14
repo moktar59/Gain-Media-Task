@@ -1,15 +1,7 @@
 <template>
-    <div>   
-        <br/>  
-        <b-row class="text-center">
-            <b-col class="title-text"><h1>Student List</h1></b-col>
-            <b-col cols="2">
-                <b-button>
-                    <router-link :to="{ name:'studentsAdd' }">Add</router-link>
-                </b-button>
-            </b-col>
-        </b-row>  
-        
+    <div>
+        <PageHeader v-bind:head="{pageTitle: 'Students List', routeName: 'studentsAdd', linkType: 'Add'}" />
+
         <div class="content">
             <b-table :fields="fields" :items="items"  striped hover responsive="sm"  v-if="items.length > 0">
                 <template v-slot:cell(_id)="row">
@@ -33,10 +25,14 @@
 
 <script>
     import Vue from 'vue';
+    import PageHeader from '../common/PageHeader';
     import { Students } from '../../../api/students';
     import { Subjects } from '../../../api/subjects';
 
     export default {
+      components: {
+        PageHeader
+      },
         data() {
           return {
             allSubjects: [],

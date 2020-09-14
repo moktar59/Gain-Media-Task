@@ -1,15 +1,7 @@
 <template>
     <div>   
-        <br/>  
-        <b-row class="text-center">
-            <b-col class="title-text"><h1>Add/Remove {{ this.$route.params.name }} Subject</h1></b-col>
-            <b-col cols="2">
-                <b-button>
-                    <router-link :to="{ name:'subjectsList' }">List</router-link>
-                </b-button>
-            </b-col>
-        </b-row>  
-        <hr/>
+        <PageHeader v-bind:head="{pageTitle: 'Add/Remove Subjects', routeName: 'subjectsList', linkType: 'List'}" />
+
         <div class="content text-left">
             <b-alert variant="danger" v-model="showDismissibleAlert"  dismissible> Already added</b-alert>
 
@@ -61,10 +53,14 @@
 </template>
 
 <script>
+    import PageHeader from '../common/PageHeader';
     import { Students } from '../../../api/students';
     import { Subjects } from '../../../api/subjects';
 
     export default {
+        components: {
+            PageHeader
+        },
         data() {
             return {
                 studentId: "",

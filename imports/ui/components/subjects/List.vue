@@ -1,14 +1,6 @@
 <template>
     <div>   
-        <br/>  
-        <b-row class="text-center">
-            <b-col class="title-text"><h1>Subjects List</h1></b-col>
-            <b-col cols="2">
-                <b-button>
-                    <router-link :to="{ name:'subjectsAdd' }">Add</router-link>
-                </b-button>
-            </b-col>
-        </b-row>  
+        <PageHeader v-bind:head="{pageTitle: 'Subjects List', routeName: 'subjectsAdd', linkType: 'Add'}" />
         
         <div class="content">
             <b-table :fields="fields" :items="items"  striped hover responsive="sm" v-if="items.length > 0">
@@ -33,10 +25,14 @@
 </template>
 
 <script>
+    import PageHeader from '../common/PageHeader';
     import { Students } from '../../../api/students';
     import { Subjects } from '../../../api/subjects';
 
-    export default {   
+    export default {  
+        components: {
+            PageHeader
+        }, 
         data() {
             return {
                 allSubjects: [],

@@ -1,15 +1,6 @@
 <template>
     <div>   
-        <br/>  
-        <b-row class="text-center">
-            <b-col class="title-text"><h1>{{ title }}</h1></b-col>
-            <b-col cols="2">
-                <b-button>
-                    <router-link :to="{ name:'studentsList' }">List</router-link>
-                </b-button>
-            </b-col>
-        </b-row>  
-        <hr/>
+        <PageHeader v-bind:head="{pageTitle: this.title, routeName: 'studentsList', linkType: 'List'}" />
         <div class="text-left">
             <b-alert variant="success" v-model="showDismissibleAlert"  dismissible> {{ message }}</b-alert>
             <form >
@@ -78,8 +69,12 @@
 
 <script>
     import { Students } from '../../../api/students';
+    import PageHeader from '../common/PageHeader';
 
     export default {
+        components: {
+            PageHeader
+        },
         data() {
             return {
                 title: "Add Student",
