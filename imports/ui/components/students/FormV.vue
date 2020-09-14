@@ -37,8 +37,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="text-password">Date of birth</label>
-                    <b-input type="date" id="text-name" aria-describedby="date-help-block" v-model="student.dob" :state="validation.dob.status"></b-input>
+                    <label for="dob">Date of birth</label>
+                    <b-input type="date" v-bind:max="maxDob" id="dob" aria-describedby="date-help-block" v-model="student.dob" :state="validation.dob.status"></b-input>
                     <b-form-invalid-feedback id="date-help-block" :state="validation.dob.status">   
                         {{ validation.dob.txt }}            
                     </b-form-invalid-feedback>
@@ -82,6 +82,7 @@
                         txt: ''
                     }
                 },   
+                maxDob: new Date().toISOString().slice(0, 10),
                 showDismissibleAlert: false,
                 message: ""             
             };
