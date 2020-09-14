@@ -58,7 +58,7 @@
         data() {
             return {
                 studentId: "",
-                options: [{id: 1, name: 'Canada'}, {id: 2, name: 'USA'}],
+                options: [],
                 subject: "",
                 subjectList: [],
                 studentList: [],
@@ -151,9 +151,7 @@
                 }
 
                 return validationSuccess;
-            }
-
-            
+            }            
         },
         created() {
             this.getOptions();

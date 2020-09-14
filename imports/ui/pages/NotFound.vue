@@ -4,7 +4,7 @@
     Not Found
   </div>
   <div>
-    This is not the page you are looking for. <router-link :to="{name:'home'}">Return home</router-link>
+    This is not the page you are looking for could not found <router-link :to="{name:'home'}">Return home</router-link>
   </div>
 </div>
 </template>
@@ -26,5 +26,9 @@
 .not-found .banner img {
   max-width: 100%;
   border-radius: 5px;
+}
+a:active {color: red;}
+a {
+  color: blue;
 }
 </style>

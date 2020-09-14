@@ -11,7 +11,7 @@
         </b-row>  
         
         <div class="content">
-            <b-table :fields="fields" :items="items"  striped hover responsive="sm">
+            <b-table :fields="fields" :items="items"  striped hover responsive="sm" v-if="items.length > 0">
                 <template v-slot:cell(_id)="row">
                     <b-button size="sm" @click="row.toggleDetails" class="mr-2">
                         <router-link :to="{ name:'subjectsEdit', params: { name: row.item.subject }}">
@@ -23,6 +23,10 @@
                     </b-button>
                 </template>
             </b-table>
+            <div  v-if="items.length <= 0">
+              <hr/>
+              <p class="text-danger">You did not added any Subject yet.</p>
+            </div>
         </div>
     </div>
     
@@ -94,7 +98,7 @@
                 return tmpSubjects;
             },
             deleteSubject(row) {
-
+                //As of code optization and security. this functionality wille moved to server alterr on.
                 this.allSubjects.forEach(function(obj) {
                     if (row.item.subject === obj.subject) {
                         Subjects.remove(obj._id);

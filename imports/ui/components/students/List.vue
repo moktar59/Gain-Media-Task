@@ -11,7 +11,7 @@
         </b-row>  
         
         <div class="content">
-            <b-table :fields="fields" :items="items"  striped hover responsive="sm">
+            <b-table :fields="fields" :items="items"  striped hover responsive="sm"  v-if="items.length > 0">
                 <template v-slot:cell(_id)="row">
                     <b-button size="sm" class="mr-2">                        
                         <router-link :to="{ name:'studentsEdit', params: { id: row.item._id }}">
@@ -23,6 +23,10 @@
                     </b-button>
                 </template>
             </b-table>
+            <div  v-if="items.length <= 0">
+              <hr/>
+              <p class="text-danger">You did not added any Student yet.</p>
+            </div>
         </div>
     </div>
 </template>
@@ -49,18 +53,12 @@
               },
               {
                 key: 'phone',
-                sortable: true,
-                formatter: value => {
-                  return value
-                }
+                sortable: true
               },
               {
                 key: 'dob',
                 label: 'Date of birth',
                 sortable: true,
-                formatter: (value, key, item) => {
-                  return value;
-                }
               },
               {
                   key: 'subject',
@@ -103,6 +101,7 @@
                 dob: new Date(obj.dob).toLocaleString().split(',')[0].replace("/", '-').replace("/", '-'),
                 subject: Boolean(mergedSubjects[obj._id])? mergedSubjects[obj._id] : ""
               };
+
               tmpList.push(tmpObj);
             });
 
@@ -111,7 +110,6 @@
             return studentList;
           },
           deleteStudent(row) {
-            console.log("dfddddd id = ", row.item);
             Students.remove(row.item._id);
 
             //Delete Subjects of that student
