@@ -1,6 +1,6 @@
 <template>
     <div>   
-        <PageHeader v-bind:head="{pageTitle: 'Add/Remove Subjects', routeName: 'subjectsList', linkType: 'List'}" />
+        <PageHeader v-bind:head="{pageTitle: this.title, routeName: 'subjectsList', linkType: 'List'}" />
 
         <div class="content text-left">
             <b-alert variant="danger" v-model="showDismissibleAlert"  dismissible> Already added</b-alert>
@@ -63,6 +63,7 @@
         },
         data() {
             return {
+                title: Boolean(this.$route.params.name) ? "Add/Remove " + this.$route.params.name + " Subject" : "Add/Remove Subjects",
                 studentId: "",
                 options: [],
                 subject: "",

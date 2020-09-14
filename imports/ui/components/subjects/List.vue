@@ -17,7 +17,7 @@
             </b-table>
             <div  v-if="items.length <= 0">
               <hr/>
-              <p class="text-danger">You did not added any Subject yet.</p>
+              <p class="text-danger">No Subject Found.</p>
             </div>
         </div>
     </div>

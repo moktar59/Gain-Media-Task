@@ -5,7 +5,7 @@
                 <b-col class="custom-theme"><h1>Gain Solutions Task</h1></b-col>
             </b-row>
             <b-row>
-                <b-col class="custom-theme min-height">
+                <b-col class="custom-theme sidebar-col">
                     <SidebarLink />
                 </b-col>
                 <b-col cols="10">
@@ -35,8 +35,10 @@
         color: #ffffff;
     }
 
-    .min-height {
+    .sidebar-col {
         min-height: 800px;
+        padding: 0px;
+        margin: 0px;
     }
 
     .page-header {
