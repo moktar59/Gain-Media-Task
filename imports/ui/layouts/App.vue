@@ -2,7 +2,7 @@
     <div>        
         <b-container fluid="sm">
             <b-row class="text-center">
-                <b-col class="custom-theme"><h1>Gain Media Task</h1></b-col>
+                <b-col class="custom-theme"><h1>Gain Solutions Task</h1></b-col>
             </b-row>
             <b-row>
                 <b-col class="custom-theme min-height">
